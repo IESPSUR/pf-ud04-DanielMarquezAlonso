@@ -15,30 +15,32 @@
             <th>Marca</th>
 
         </thread>
-    <tbody>
-    {% for producto in productos %}
-        <tr>
-            <td>
-                {{ producto.nombre }}
-            </td>
-            <td>
-                {{ producto.unidades }}
-            </td>
-            <td>
-                {{ producto.modelo }}
-            </td>
-            <td>
-                {{ producto.precio }}
-            </td>
-            <td>
-                {{ producto.detalles }}
-            </td>
-            <td>
-                {{ producto.marca }}
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
+        <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>
+                    <a href="{% url 'admin_producto_detalle' pk=producto.pk %}">
+                    {{ producto.nombre }}
+                    </a>
+                </td>
+                <td>
+                    {{ producto.unidades }}
+                </td>
+                <td>
+                    {{ producto.modelo }}
+                </td>
+                <td>
+                    {{ producto.precio }}
+                </td>
+                <td>
+                    {{ producto.detalles }}
+                </td>
+                <td>
+                    {{ producto.marca }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
     </table>
 
 

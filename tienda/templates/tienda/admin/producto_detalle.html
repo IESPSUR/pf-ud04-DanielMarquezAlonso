@@ -6,5 +6,13 @@
 </head>
 <body>
 
+    <h1>Esto es producto detalle</h1>
+    <fieldset>
+        <legend>Formulario de producto</legend>
+        {% csrf_token %}
+        {{ producto_form.as_div }}
+
+    </fieldset>
+
 </body>
 </html>
