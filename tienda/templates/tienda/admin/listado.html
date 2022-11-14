@@ -1,7 +1,46 @@
 {% extends 'tienda/base.html' %}
 
 {% block content %}
-	<h2>Listado</h2>
+	<h2>Listado Productos</h2>
 
-    <h1>{{ marca }}</h1>
+
+
+      <table class="table table-striped">
+        <thread>
+            <th>Nombre</th>
+            <th>Unidades</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Detalles</th>
+            <th>Marca</th>
+
+        </thread>
+    <tbody>
+    {% for producto in productos %}
+        <tr>
+            <td>
+                {{ producto.nombre }}
+            </td>
+            <td>
+                {{ producto.unidades }}
+            </td>
+            <td>
+                {{ producto.modelo }}
+            </td>
+            <td>
+                {{ producto.precio }}
+            </td>
+            <td>
+                {{ producto.detalles }}
+            </td>
+            <td>
+                {{ producto.marca }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+
+
 {% endblock %}
