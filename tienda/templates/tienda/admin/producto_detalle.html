@@ -10,8 +10,10 @@
     <fieldset>
         <legend>Formulario de producto</legend>
         {% csrf_token %}
-        {{ producto_form.as_div }}
+        {{ producto_form.as_p }}
 
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{% url 'admin_listado' %}"><button type="submit" class="btn btn-secundary">Volver</button></a>
     </fieldset>
 
 </body>

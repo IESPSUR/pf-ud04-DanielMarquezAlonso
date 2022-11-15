@@ -7,12 +7,14 @@
 
       <table class="table table-striped">
         <thread>
-            <th>Nombre</th>
+            <th>nombre</th>
             <th>Unidades</th>
             <th>Modelo</th>
             <th>Precio</th>
             <th>Detalles</th>
             <th>Marca</th>
+            <th>Eliminar</th>
+
 
         </thread>
         <tbody>
@@ -38,9 +40,14 @@
                 <td>
                     {{ producto.marca }}
                 </td>
+                <td>
+                    <a href="{% url 'admin_producto_eliminar' pk=producto.pk %}"><button type="submit" class="btn btn-secundary">Eliminar</button></a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
+          <a href="{% url 'admin_producto_nuevo' %}"><button type="submit" class="btn btn-secundary">Nuevo</button></a>
+
     </table>
 
 
