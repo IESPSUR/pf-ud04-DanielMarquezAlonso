@@ -10,5 +10,6 @@ urlpatterns = [
     path('tienda/admin/producto_eliminar/<int:pk>/', views.admin_producto_eliminar, name='admin_producto_eliminar'),
     path('tienda/listado_compra/', views.compra_listado, name='compra_listado'),
     path('tienda/compra_producto/<int:pk>/', views.compra_producto, name='compra_producto'),
+    path('tienda/checkout/<int:pk>/', views.checkout, name='checkout'),
 
 ]

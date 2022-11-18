@@ -1,6 +1,8 @@
 from django import forms
+from django.core.exceptions import ValidationError
+
 from .models import Producto
-from  .models import Compra
+from .models import Compra
 
 class ProductoForm(forms.ModelForm):
 
@@ -13,8 +15,9 @@ class CompraForm(forms.ModelForm):
         model = Compra
         fields = ('unidades','importe',)
 
-    def clean(self, *args, **kwargs):
-        cleaned_data = super(CompraForm, self).clean(*args, **kwargs)
-        unidades = cleaned_data.get('unidades')
-        if unidades <= Producto.unidades :
-            self.add_error('unidades', 'Las unidades deben se igual o menor a las disponibles')
+    def clean_minas(self):
+        unidad = self.cleaned_data.get('unidades')
+        if unidad is None:
+            raise ValidationError("Has introducido más unidades del stock actual")
+        return unidad
+
