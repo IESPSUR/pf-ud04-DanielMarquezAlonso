@@ -1,0 +1,54 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+	<h2>Listado Productos</h2>
+    <h3>Compra</h3>
+
+
+
+      <table class="table table-striped">
+        <thread>
+            <th>nombre</th>
+            <th>Unidades</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Detalles</th>
+            <th>Marca</th>
+            <th>Comprar</th>
+
+
+        </thread>
+        <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>
+                    {{ producto.nombre }}
+                    </a>
+                </td>
+                <td>
+                    {{ producto.unidades }}
+                </td>
+                <td>
+                    {{ producto.modelo }}
+                </td>
+                <td>
+                    {{ producto.precio }}
+                </td>
+                <td>
+                    {{ producto.detalles }}
+                </td>
+                <td>
+                    {{ producto.marca }}
+                </td>
+                <td>
+                    <a href="{% url 'compra_producto' pk=producto.pk %}"><button type="submit" class="btn btn-secundary">Comprar</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+
+
+{% endblock %}
