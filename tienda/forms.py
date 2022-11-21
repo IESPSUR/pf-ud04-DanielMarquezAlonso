@@ -1,3 +1,4 @@
+
 from django import forms
 from django.core.exceptions import ValidationError
 
@@ -12,11 +13,18 @@ class ProductoForm(forms.ModelForm):
 
 """
 class CompraForm(forms.ModelForm):
+    precio = forms.DecimalField()
+    importe = forms.DecimalField()
+
+
+
     class Meta:
         model = Compra
-        fields = ('unidades','importe',)
+        model = Producto
+        fields = ('unidades','importe')
 """
 class CompraForm(forms.Form):
     unidades = forms.FloatField(label='unidades')
+
 
 

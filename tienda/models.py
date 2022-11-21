@@ -1,5 +1,7 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
+
 
 class Marca(models.Model):
 
@@ -23,8 +25,8 @@ class Producto(models.Model):
 
 class Compra(models.Model):
     producto = models.ForeignKey(Producto, models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    fecha = models.DateTimeField()
+    #user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    fecha = models.DateTimeField(default=timezone.now)
     unidades = models.PositiveIntegerField()
     importe = models.IntegerField()
 
