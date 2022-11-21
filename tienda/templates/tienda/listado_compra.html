@@ -22,7 +22,8 @@
         {% for producto in productos %}
             <tr>
                 <td>
-                   <a href="{% url 'compra_producto' pk=producto.pk %}">
+                   <a href="{% url 'compra_producto' producto.pk %}">
+                   <!-- <a href="{% url 'compra_producto' pk=producto.pk %}"-->
 
                     {{ producto.nombre }}
                     </a>

@@ -6,16 +6,35 @@
 </head>
 <body>
      <h1>Comprar un producto</h1>
-    <fieldset>
-        <legend>Comprar producto</legend>
-         <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <h2>Vas a comprar: {{ producto.nombre }}</h2>
+                 <ul>
 
-        <button type="submit" class="btn btn-primary">Save</button>
+                    <li>
+                        Modelo: {{ producto.modelo }}
+                    </li>
+                    <li>
+                        Unidades: {{ producto.unidades }}
+                    </li>
+                    <li>
+                        Precio:  {{ producto.precio }}€
+                    </li>
+                    <li>
+                        Detalles: {{ producto.detalles }}
+                    </li>
+                    <li>
+                        Marca: {{ producto.marca }}
+                    </li>
+                 </ul>
+
+
+
+
+    <form method="POST">
+    {% csrf_token %}
+        {{ form }}
+       <p> <input type="submit" value="Comprar"></p>
         <a href="{% url 'compra_listado' %}"><button type="submit" class="btn btn-secundary">Volver</button></a>
-         </form>
+    </form>
 
-    </fieldset>
 </body>
 </html>
