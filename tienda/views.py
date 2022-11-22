@@ -64,6 +64,7 @@ def compra_listado(request):
 @transaction.atomic
 def compra_producto(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
+    compra_form = ProductoForm()
     if request.method == "POST":
         form = CompraForm(request.POST)
         if form.is_valid():
@@ -78,10 +79,10 @@ def compra_producto(request, pk):
                 producto.save();
 
             productos = Producto.objects.filter().order_by('nombre')
-            return render(request, 'tienda/listado_compra.html', {'productos': productos})
+            return render(request, 'tienda/listado_compra.html', {'productos': productos, 'form': compra_form})
     else:
         form = CompraForm()
-    return render(request, 'tienda/compra_producto.html', {'form': form})
+    return render(request, 'tienda/compra_producto.html', {'productos': producto, 'form': form})
 
 def checkout(request):
     producto = Producto.objects.all()

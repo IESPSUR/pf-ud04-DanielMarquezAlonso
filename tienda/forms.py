@@ -26,5 +26,9 @@ class CompraForm(forms.ModelForm):
 class CompraForm(forms.Form):
     unidades = forms.FloatField(label='unidades')
 
+    class Meta:
+        model = Compra
+        fields = "__all__"
+
 
 

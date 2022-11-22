@@ -6,23 +6,23 @@
 </head>
 <body>
      <h1>Comprar un producto</h1>
-    <h2>Vas a comprar: {{ producto.nombre }}</h2>
+    <h2>Vas a comprar: {{ productos.nombre }}</h2>
                  <ul>
 
                     <li>
-                        Modelo: {{ producto.modelo }}
+                        Modelo: {{ productos.modelo }}
                     </li>
                     <li>
-                        Unidades: {{ producto.unidades }}
+                        Unidades: {{ productos.unidades }}
                     </li>
                     <li>
-                        Precio:  {{ producto.precio }}€
+                        Precio:  {{ productos.precio }}€
                     </li>
                     <li>
-                        Detalles: {{ producto.detalles }}
+                        Detalles: {{ productos.detalles }}
                     </li>
                     <li>
-                        Marca: {{ producto.marca }}
+                        Marca: {{ productos.marca }}
                     </li>
                  </ul>
 
@@ -31,9 +31,10 @@
 
     <form method="POST">
     {% csrf_token %}
-        {{ form }}
+        {{ form.as_div }}
        <p> <input type="submit" value="Comprar"></p>
         <a href="{% url 'compra_listado' %}"><button type="submit" class="btn btn-secundary">Volver</button></a>
+
     </form>
 
 </body>
